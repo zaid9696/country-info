@@ -1,0 +1,98 @@
+
+.hero {
+
+  grid-column: full-start / full-end;
+  height: 460px;
+  margin-top: 22px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .content{
+    margin: 0 40px;
+    position: relative;
+    bottom: 44px;
+  }
+  h1{
+    color: #0F2633;
+    text-transform: capitalize;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 41px
+
+  }
+
+  .form{
+    text-align: center;
+    position: relative;
+    .search {
+
+      width: 737px;
+      height: 52px;
+      padding: 15px;
+      border-radius: 13px;
+      border-top: 2px solid var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      border-right: 2px solid var(--primary-color);
+      border-left: 2px solid var(--secondary-color);
+      outline: none;
+      transition: all 0.3s ease-in-out;
+      font-size: 1.1rem;
+      color: #0f2633;
+      &:focus{
+        box-shadow: 1px 0px 29px 3px #85d5ff;
+      }
+
+    }
+
+    .searchIcon {
+      position: absolute;
+      top: 16%;
+      right: 9%;
+      width: 34px;
+      height: 34px;
+    }
+
+    .searchDropdown {
+
+      list-style: none;
+      position: absolute;
+      left: 50px;
+      width: 704px;
+      background-color: white;
+      border-radius: 0px 0px 12px 12px;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      box-shadow: 0px 1px 8px 2px #00000036;
+      // display: none;
+      .dropItem {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        color: #0f2633;
+        border-bottom: 1px solid var(--secondary-color);
+        padding-left: 12px;
+        padding-bottom: 8px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        &:hover{
+          color: #1a735f;
+        }
+      }
+
+      .itemHiglight {
+        background-color: #fff810;
+        padding: 0.02rem;
+        border-radius: 4px;
+        text-transform: capitalize;
+      }
+
+    }
+  }
+}
+
+.simplebar-scrollbar:before{
+  background-color: #5e3367 !important;
+}

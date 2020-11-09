@@ -1,0 +1,23 @@
+
+
+
+.navItems{
+
+  .item{
+    font-size: 1.24rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 50px;
+    color: var(--third-color);
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      color: var(--primary-color);
+    }
+  }
+  .active{
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--secondary-color);
+  }
+}

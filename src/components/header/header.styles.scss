@@ -1,0 +1,13 @@
+
+.header{
+
+  grid-column: center-start / center-end;
+  display: flex;
+  justify-content: space-between;
+    align-items: center;
+    margin-top: 33px;
+  .logo{
+    width: 71px;
+    height: 71px
+  }
+}

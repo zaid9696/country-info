@@ -1,16 +1,16 @@
 
+:root{
+  --primary-color: #EA81FD;
+  --secondary-color: #85D5FF;
+  --third-color: #585858
+}
 
-$primary-color:#EA81FD;
-$secondary-color:#85D5FF;
-$third-color:#85D5FF;
 
 
-
-body{
+.main{
 
     display: grid;
-    grid-template-columns: [full-start] minmax(2rem,1fr) [center-start] repeat(8, [col-start] minmax(min-content, 15rem) [col-start]) [center-end] minmax(2rem, 1fr) [full-end];
-    font-size: 62.2%;
-    box-sizing: border-box;
+    grid-template-columns: [full-start] minmax(2rem,1fr) [center-start] repeat(8, [col-start] minmax(min-content, 9.2rem) [col-start]) [center-end] minmax(2rem, 1fr) [full-end];
+
 
 }
