@@ -1,6 +1,6 @@
 
 import {takeLatest, put, call, all} from 'redux-saga/effects';
-import axios from 'axios';
+// import axios from 'axios';
 
 import cardActionTypes from './card.actionTypes';
 import {cardFetchSuccess} from './card.actions';
