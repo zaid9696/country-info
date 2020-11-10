@@ -2,7 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import SimpleBar from 'simplebar-react';
-import {getNames} from 'country-list';
+import {getNames, getCode} from 'country-list';
 import {cardFetch} from '../../redux/card/card.actions';
 
 import RenderHTML from '../renderHTML/renderHTML';
@@ -18,7 +18,6 @@ const SearchDropdown = ({searchValue, cardFetch}) => {
 const onClickHandler = (e) => {
 
       const searchText = e.target.matches('.dropItem');
-
         let contentText = e.target.dataset.item;
 
         if(!searchText){
@@ -26,7 +25,9 @@ const onClickHandler = (e) => {
         }
 
         // console.log(contentText);
-      cardFetch(contentText)
+      const countryCode = getCode(contentText);
+      // console.log(countryCode);
+      cardFetch(countryCode);
 
 }
 

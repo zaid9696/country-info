@@ -2,10 +2,12 @@
 import {combineReducers} from 'redux';
 
 import searchReducer from './search/search.reducer';
+import cardReducer from './card/card.reducer';
 
 const rootReducers = combineReducers({
 
-  search: searchReducer
+  search: searchReducer,
+  card: cardReducer
 
 });
 

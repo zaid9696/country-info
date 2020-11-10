@@ -1,17 +1,34 @@
 
 import {takeLatest, put, call, all} from 'redux-saga/effects';
 import axios from 'axios';
+
 import cardActionTypes from './card.actionTypes';
+import {cardFetchSuccess} from './card.actions';
 
 
-export function* onFetchData({payload: log}) {
+export function* onFetchData({payload: log})  {
 
-    yield axios.get('https://restcountries.eu/rest/v2/name/somalia').then(res => {
 
-        const data = res.data;
+    try {
 
-      console.log(data);
-    }).catch(err => console.log(err));
+         const res = yield fetch(`https://restcountries.eu/rest/v2/alpha/${log}`);
+          const data = yield res.json();
+          yield put(cardFetchSuccess(data));
+
+         console.log(data);
+
+    } catch (e) {
+        console.log(e);
+    }
+
+    //  axios.get(`https://restcountries.eu/rest/v2/alpha/${log}`).then(res => {
+    //
+    //     const data = res.data;
+    //
+    //      put(cardFetchSuccess(data));
+    //
+    //   console.log(data);
+    // }).catch(err => console.log(err));
 
 }
 
