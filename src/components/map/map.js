@@ -22,8 +22,11 @@ if(country){
 
 const alpha3Code = country.alpha3Code;
  countryPolygon = data.features.filter(item => item.id === alpha3Code);
-
+    if(!countryPolygon.length){
+      countryPolygon = null;
+    }
   [lat,lng] = country.latlng;
+
 
 }
 
@@ -46,8 +49,8 @@ const alpha3Code = country.alpha3Code;
         'data': {
           'type': 'Feature',
           'geometry': {
-            'type': country ? countryPolygon[0].geometry.type : 'Polygon',
-            'coordinates': country ? countryPolygon[0].geometry.coordinates: []
+            'type': countryPolygon ? countryPolygon[0].geometry.type : 'Polygon',
+            'coordinates': countryPolygon ? countryPolygon[0].geometry.coordinates: []
           }
         }
       });
@@ -58,9 +61,10 @@ const alpha3Code = country.alpha3Code;
         'source': 'maine',
         'layout': {},
         'paint': {
-          'fill-color': '#088',
-          'fill-opacity': 0.8,
-          'fill-outline-color': '#fff'
+          'fill-color': '#6147a0',
+          'fill-opacity': 0.5,
+          'fill-outline-color': '#ff006a',
+
         }
       });
     });
