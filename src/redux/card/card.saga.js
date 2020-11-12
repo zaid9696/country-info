@@ -14,8 +14,8 @@ export function* onFetchData({payload: log})  {
          const res = yield fetch(`https://restcountries.eu/rest/v2/alpha/${log}`);
           const data = yield res.json();
           yield put(cardFetchSuccess(data));
+          // console.log(data);
 
-         console.log(data);
 
     } catch (e) {
         console.log(e);

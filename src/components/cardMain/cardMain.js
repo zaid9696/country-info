@@ -25,6 +25,7 @@ import timezoneI from '../../assets/timezone.svg';
 
 const CardMain = ({country}) => {
 
+  if(!country) return null;
     const {
       altSpellings,
       area,
@@ -43,7 +44,6 @@ const CardMain = ({country}) => {
     console.log(country);
 
 
-    if(country.length === 0) return null;
 
   const numbersWithCommas = (x) => {
       if(x === null) return null;

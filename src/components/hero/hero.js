@@ -1,5 +1,5 @@
 
-import React ,{ useState} from 'react';
+import React ,{ useEffect, useState} from 'react';
 
 import SearchDropdown from '../searchDropdown/searchDropdown';
 
@@ -12,15 +12,30 @@ import {ReactComponent as SearchIcon} from '../../assets/search.svg';
 const Hero = () => {
 
   const [searchValue, setSearchValue] = useState('');
+  const [showAndHideSearch, setShowAndHideSearch] = useState('');
 
-  // const onChangeHandler = (e) => {
-  //
-  //     const {value} = e.target;
-  //     setSearchValue(value)
-  //
-  // }
 
-  // console.log(searchValue);
+  const onEventClick = (e) => {
+
+    if(e.target.matches('.search') || e.target.matches('.searchIcon')) {
+      // alert('search')
+      setShowAndHideSearch(true);
+    }else {
+      console.log(e.target);
+      setShowAndHideSearch(false);
+    }
+
+  }
+
+  useEffect(() => {
+
+    window.addEventListener('click', onEventClick);
+    return () => {
+      window.removeEventListener('click', onEventClick);
+    };
+
+  })
+
   return  (
 
     <div className="hero" style={{
@@ -32,7 +47,7 @@ const Hero = () => {
           <div className="form">
             <input type="search" onChange={(e) => setSearchValue(e.target.value)} name="search" placeholder="Type country’s name here" className="search" autoComplete="off" />
             <SearchIcon className="searchIcon" />
-           <SearchDropdown searchValue={searchValue} />
+           { showAndHideSearch ? <SearchDropdown searchValue={searchValue} /> : null}
           </div>
       </div>
 

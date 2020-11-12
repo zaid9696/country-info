@@ -7,11 +7,20 @@ import {cardFetch} from '../../redux/card/card.actions';
 
 import RenderHTML from '../renderHTML/renderHTML';
 
+
+
+
+
+
+
+
+
 const SearchDropdown = ({searchValue, cardFetch}) => {
 
 
-      const countries = getNames();
 
+      const countries = getNames();
+        // console.log(hideSearch);
         const nameCapitalized = searchValue.charAt(0).toUpperCase() + searchValue.slice(1);
       const conName = countries.filter((country) => country.includes(nameCapitalized));
 
@@ -63,5 +72,7 @@ const mapDispatchProps = (dispatch) => ({
   cardFetch: (log) => dispatch(cardFetch(log))
 
 })
+
+
 
 export default connect('',mapDispatchProps)(SearchDropdown);

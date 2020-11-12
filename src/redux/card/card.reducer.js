@@ -4,7 +4,7 @@ import cardActionTypes from './card.actionTypes';
 const initState = {
 
   cardInfo: '',
-  country: []
+  country: null
 };
 
 
@@ -22,7 +22,7 @@ const cardReducer = (state = initState, action) => {
           ...state,
           country: action.payload
         };
-      
+
 
       default: return state;
 

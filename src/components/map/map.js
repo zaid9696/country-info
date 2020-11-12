@@ -1,24 +1,43 @@
 
 import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 import mapboxgl from 'mapbox-gl';
+
+// import geoCoun from 'osm-countries-geojson';
+// import mapData from './map.data.js';
+import data from '../../countries.geo.json';
+
+import {createStructuredSelector} from 'reselect';
+import {selectCardCountry} from '../../redux/card/card.selectors';
+import {selectCardInfo} from '../../redux/card/card.selectors';
 
 import './map.styles.scss';
 
 
 
-const Map = () => {
+const Map = ({country, cardInfo}) => {
 
+  let lat, lng, countryPolygon;
+if(country){
+
+const alpha3Code = country.alpha3Code;
+ countryPolygon = data.features.filter(item => item.id === alpha3Code);
+
+  [lat,lng] = country.latlng;
+
+}
+
+// console.log();
 
   useEffect(() => {
-
 
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiencyODMiLCJhIjoiY2p2Mnpwa2NuMHhoYTN5cDlrNHVmZ3p3dyJ9.UzRG4rXiLMXwg99oQ6UMRw';
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-68.13734351262877, 45.137451890638886],
-      zoom: 5
+      center: country ? [lng, lat] : [0, 0],
+      zoom: country ? 4 : 1
     });
 
     map.on('load', function () {
@@ -27,31 +46,8 @@ const Map = () => {
         'data': {
           'type': 'Feature',
           'geometry': {
-            'type': 'Polygon',
-            'coordinates': [
-              [
-                [-67.13734351262877, 45.137451890638886],
-                [-66.96466, 44.8097],
-                [-68.03252, 44.3252],
-                [-69.06, 43.98],
-                [-70.11617, 43.68405],
-                [-70.64573401557249, 43.090083319667144],
-                [-70.75102474636725, 43.08003225358635],
-                [-70.79761105007827, 43.21973948828747],
-                [-70.98176001655037, 43.36789581966826],
-                [-70.94416541205806, 43.46633942318431],
-                [-71.08482, 45.3052400000002],
-                [-70.6600225491012, 45.46022288673396],
-                [-70.30495378282376, 45.914794623389355],
-                [-70.00014034695016, 46.69317088478567],
-                [-69.23708614772835, 47.44777598732787],
-                [-68.90478084987546, 47.184794623394396],
-                [-68.23430497910454, 47.35462921812177],
-                [-67.79035274928509, 47.066248887716995],
-                [-67.79141211614706, 45.702585354182816],
-                [-67.13734351262877, 45.137451890638886]
-              ]
-            ]
+            'type': country ? countryPolygon[0].geometry.type : 'Polygon',
+            'coordinates': country ? countryPolygon[0].geometry.coordinates: []
           }
         }
       });
@@ -63,12 +59,13 @@ const Map = () => {
         'layout': {},
         'paint': {
           'fill-color': '#088',
-          'fill-opacity': 0.8
+          'fill-opacity': 0.8,
+          'fill-outline-color': '#fff'
         }
       });
     });
 
-  }, [])
+  }, [country, lat, lng, countryPolygon])
 
   return (
     <div className="map-container">
@@ -77,5 +74,9 @@ const Map = () => {
   );
 }
 
+const mapStateToProps = createStructuredSelector({
+  country: selectCardCountry,
+  cardInfo: selectCardInfo
+});
 
-export default Map;
+export default connect(mapStateToProps)(Map);
