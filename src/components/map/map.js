@@ -27,7 +27,6 @@ const alpha3Code = country.alpha3Code;
     }
   [lat,lng] = country.latlng;
 
-
 }
 
 // console.log();
@@ -73,6 +72,7 @@ const alpha3Code = country.alpha3Code;
 
   return (
     <div className="map-container">
+      { country ? <div className="map-title"><h2>The map of {country.name}</h2></div> : null}
       <div id="map"></div>
     </div>
   );

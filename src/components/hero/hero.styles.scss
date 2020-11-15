@@ -18,6 +18,12 @@
     color: #0F2633;
     text-transform: capitalize;
     font-size: 2rem;
+    @media screen and (max-width: 905px) {
+      font-size: 1.59rem;
+    line-height: 31px;
+    position: relative;
+    bottom: 18px;
+    }
     text-align: center;
     line-height: 41px
 
@@ -43,6 +49,9 @@
       &:focus{
         box-shadow: 1px 0px 29px 3px #85d5ff;
       }
+      @media screen and (max-width: 905px) {
+        width: 100%;
+      }
 
     }
 
@@ -52,6 +61,7 @@
       right: 9%;
       width: 34px;
       height: 34px;
+
     }
 
     .searchDropdown {
@@ -67,9 +77,17 @@
       text-align: left;
       box-shadow: 0px 1px 8px 2px #00000036;
       z-index: 100;
+      @media screen and (max-width: 905px) {
+        left: 14px;
+        width: 94%;
+      }
       // display: none;
       .dropItem {
         font-size: 1.6rem;
+        @media screen and (max-width: 905px) {
+          font-size: 1.2rem;
+        }
+
         margin-bottom: 1rem;
         margin-top: 1rem;
         color: #0f2633;

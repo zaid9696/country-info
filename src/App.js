@@ -1,10 +1,10 @@
 import React from 'react';
-
-// import {getNames} from 'country-list';
+import {Route, Switch} from 'react-router-dom';
 
 import Header from './components/header/header';
 import Home from './pages/home/home';
-import Map from './components/map/map';
+import About from './pages/about/about';
+import Contact from './pages/contact/contact';
 import Footer from './components/footer/footer';
 
 import './App.scss';
@@ -16,8 +16,13 @@ function App() {
   return (
     <div className="main">
       <Header />
-      <Home />
-      <Map />
+
+      <Switch>
+        <Route path='/' exact component={Home}/>
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </Switch>
+
       <Footer />
     </div>
   );

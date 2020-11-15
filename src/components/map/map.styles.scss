@@ -6,6 +6,27 @@ body{margin: 0; padding:0}
   width: 98.79vw;
   height: 410px;
 
+  .map-title{
+      position: relative;
+      z-index: 101;
+      left: 0;
+      top: -105px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+    h2{
+      margin: auto;
+      background-color: #85d5ffcf;
+      padding: 1.2rem 1.9rem;
+      font-size: 1.6rem;
+      color: #000000;
+      letter-spacing: 0.4px;
+      border: 1px solid #ea81fd94;
+      box-shadow: 1px 0px 24px -8px #00000066;
+      border-radius: 6px;
+    }
+  }
+
   #map {
     position: absolute; top: 0; bottom: 0; width: 100%;
   }
