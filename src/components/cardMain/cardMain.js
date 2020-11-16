@@ -41,9 +41,6 @@ const CardMain = ({country}) => {
       regionalBlocs,
       timezones
       } = country;
-    console.log(country);
-
-
 
   const numbersWithCommas = (x) => {
       if(x === null) return null;
@@ -51,6 +48,7 @@ const CardMain = ({country}) => {
   }
 
   return (
+    <React.Fragment>
     <div className="infoCard">
         <div className="cardHeader" style={{
           backgroundImage: `url(${cardBackground})`
@@ -180,7 +178,8 @@ const CardMain = ({country}) => {
 
         </div>
     </div>
-
+    { country ? <div className="map-title"><h2>The map of {country.name}</h2></div> : null}
+    </React.Fragment>
   );
 }
 

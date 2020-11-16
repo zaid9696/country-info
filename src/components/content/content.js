@@ -1,6 +1,11 @@
 
 import React from 'react';
+import {connect} from 'react-redux';
 
+import {createStructuredSelector} from 'reselect';
+import {selectCardLoading} from '../../redux/card/card.selectors';
+
+import Spinner from '../spinner/spinner';
 import contentBackground from '../../assets/contentBackground.svg';
 
 
@@ -9,7 +14,7 @@ import CardMain from '../cardMain/cardMain';
 import './content.styles.scss';
 
 
-const Content = () => (
+const Content = ({loading}) => (
 
     <div className="content"
       style={{
@@ -17,11 +22,13 @@ const Content = () => (
       }}
     >
 
-    {<CardMain />}
-
+    {loading ? <Spinner /> : <CardMain />}
     </div>
 
 )
 
+const mapStateToProps = createStructuredSelector({
+  loading: selectCardLoading
+});
 
-export default Content ;
+export default connect(mapStateToProps)(Content);

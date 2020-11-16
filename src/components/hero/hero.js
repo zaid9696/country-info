@@ -21,7 +21,7 @@ const Hero = () => {
       // alert('search')
       setShowAndHideSearch(true);
     }else {
-      console.log(e.target);
+      
       setShowAndHideSearch(false);
     }
 

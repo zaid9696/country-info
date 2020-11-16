@@ -7,19 +7,33 @@
 
   .infoCard {
     width: 80%;
+    @media screen and (max-width: 905px) {
+      width: 95%;
+    }
     margin: auto;
     margin-top: 3rem;
     background-color: #fff;
     box-shadow: 1px 0px 24px -8px #00000066;
-    margin-bottom: 8.5rem;
     .cardHeader {
       height: 335px;
+      @media screen and (max-width: 500px) {
+        height: 255px;
+      }
+
       background-repeat: no-repeat;
       background-size: contain;
       background-position-y: -3px;
       .imgeContainer{
         width: 504px;
         height: 270px;
+        @media screen and (max-width: 905px) {
+          width: 300px;
+          height: 300px;
+        }
+        @media screen and (max-width: 500px) {
+          width: 250px;
+          height: 200px;
+        }
         display: flex;
         margin: auto;
         img{
@@ -34,7 +48,19 @@
     .cardMain {
       .cardList{
         display: grid;
-        grid-template-columns: 25% 1fr;
+        grid-template-columns: 252px 1fr;
+        @media screen and (max-width: 650px) {
+          grid-template-columns: 216px 1fr;
+
+        }
+        @media screen and (max-width: 500px) {
+          grid-template-columns: 1fr;
+          justify-items: center;
+          grid-row-gap: 4px;
+          row-gap: 4px;
+
+        }
+
         border-bottom: 1px solid var(--secondary-color);
         margin-bottom: 12px;
         position: relative;
@@ -54,8 +80,24 @@
           align-items: center;
           border-right: 1px solid var(--secondary-color);
           margin-right: 1.3rem;
+          @media screen and (max-width: 500px) {
+            margin-right: 0rem;
+            padding-left: 0rem;
+            border-bottom: 2px solid var(--secondary-color);
+            border-right: none;
+            flex-direction: column;
+          }
+
           img{
             margin-right: 1rem;
+            @media screen and (max-width: 905px) {
+              width: 37px;
+            }
+            @media screen and (max-width: 500px) {
+              margin-right: 0rem;
+              width: 50px;
+            }
+
           }
           h4{
             font-size: 1.08rem;
@@ -64,6 +106,16 @@
             margin: 0;
             position: relative;
             bottom: 5px;
+            @media screen and (max-width: 905px) {
+              font-size: 0.9rem;
+              line-height: 18px;
+              bottom: 4px;
+            }
+            @media screen and (max-width: 500px) {
+
+              font-size: 1rem;
+
+            }
 
           }
         }
@@ -73,6 +125,20 @@
           align-items: center;
           p{
             font-size: 1.3rem;
+            @media screen and (max-width: 905px) {
+              font-size: 1.1rem;
+              line-height: 25px
+            }
+            @media screen and (max-width: 500px) {
+              font-size: 1.18rem;
+              line-height: 26px;
+              margin: 5px 1.5rem;
+              text-align: center;
+              padding: 10px 0;
+              padding-top: 2px;
+              font-weight: 400;
+              }
+
             color: #636363;
             font-weight: 100;
             margin: 0;

@@ -71,10 +71,11 @@ const alpha3Code = country.alpha3Code;
   }, [country, lat, lng, countryPolygon])
 
   return (
-    <div className="map-container">
-      { country ? <div className="map-title"><h2>The map of {country.name}</h2></div> : null}
+    <React.Fragment>
+      <div className="map-container">
       <div id="map"></div>
-    </div>
+      </div>
+    </React.Fragment>
   );
 }
 

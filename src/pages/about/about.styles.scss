@@ -3,12 +3,16 @@
 
   grid-column: full-start / full-end;
   margin-top: 22px;
-  min-height: 473px;
+  min-height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   margin: 0rem 4rem;
   position: relative;
+    @media screen and (max-width: 500px) {
+      margin: 0rem 1rem;
+
+    }
   &::after {
     content: '';
     position: absolute;
@@ -28,6 +32,9 @@
       color: var(--primary-color);
       text-transform: uppercase;
       letter-spacing: 1px;
+      @media screen and (max-width: 500px) {
+        font-size: 2rem;
+      }
     }
     p {
       font-size: 2.4rem;
@@ -35,6 +42,11 @@
       letter-spacing: 0.6px;
       line-height: 3rem;
       color: #29424e;
+      @media screen and (max-width: 500px) {
+        font-size: 1.7rem;
+        line-height: 36px;
+      }
+
     }
 
 

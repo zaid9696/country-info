@@ -15,3 +15,5 @@ export const selectCardInfo = createSelector(
   [cardSelector],
   (card) => card.cardInfo
 );
+
+export const selectCardLoading = createSelector([cardSelector], (card) => card.loading);

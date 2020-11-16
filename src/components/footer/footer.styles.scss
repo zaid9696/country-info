@@ -3,26 +3,41 @@
   grid-column: full-start / full-end;
   background-color: #08050c;
   padding: 2rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   color:#bdbdbd;
   font-size: 0.9rem;
+  column-gap: 40px;
+  @media screen and (max-width: 500px) {
+    font-size: 0.8rem;
+    line-height: 23px;
+    padding: 2rem 1.5rem;
+  }
   &__info{
     a{
       text-decoration: none;
       color: var(--primary-color);
       font-weight: bold;
       font-size: 1rem;
+      @media screen and (max-width: 500px) {
+        font-size: 0.9rem
+      }
     }
   }
 
   &__powred {
+
+      justify-self: end;
     a{
 
       text-decoration: none;
       color: var(--secondary-color);
       font-weight: bold;
       font-size: 1rem;
+      @media screen and (max-width: 500px) {
+        font-size: 0.9rem
+      }
     }
   }
 
