@@ -13,6 +13,7 @@ const Hero = () => {
 
   const [searchValue, setSearchValue] = useState('');
   const [showAndHideSearch, setShowAndHideSearch] = useState('');
+  const [enter, setEnter] = useState('');
 
 
   const onEventClick = (e) => {
@@ -21,7 +22,7 @@ const Hero = () => {
       // alert('search')
       setShowAndHideSearch(true);
     }else {
-      
+
       setShowAndHideSearch(false);
     }
 
@@ -29,12 +30,13 @@ const Hero = () => {
 
   useEffect(() => {
 
+      setEnter('form-enter');
     window.addEventListener('click', onEventClick);
     return () => {
       window.removeEventListener('click', onEventClick);
     };
 
-  })
+  },[setEnter]);
 
   return  (
 
@@ -44,8 +46,8 @@ const Hero = () => {
 
       <div className="content">
           <h1>Search any country's map, population, capital, flag, <br /> and much more.</h1>
-          <div className="form">
-            <input type="search" onChange={(e) => setSearchValue(e.target.value)} name="search" placeholder="Type country’s name here" className="search" autoComplete="off" />
+          <div className={`form ${enter}`}>
+              <input type="search" className='search' onChange={(e) => setSearchValue(e.target.value)} name="search" placeholder="Type country’s name here"  autoComplete="off" />
             <SearchIcon className="searchIcon" />
            { showAndHideSearch ? <SearchDropdown searchValue={searchValue} /> : null}
           </div>
